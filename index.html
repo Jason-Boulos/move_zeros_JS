@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  
+<script>
+    const userInput = prompt("please enter your numbers seperated by a space")
+    const userList = userInput.split(' ')
+    const  validUserInput = []
+
+    const moveZeros = (list) =>{
+        newList=[]
+        countOf0 = 0;
+        for(let i = 0;i < list.length;i++){
+            if ( list[i] !== 0){
+                newList.push(list[i])
+            }
+            else{
+            countOf0++
+            }
+
+        }
+        for (let j = 0; j < countOf0; j++) {
+            newList.push(0);
+        }
+    
+        return newList;
+    };
+    
+    userList.forEach(item =>{
+        //consition to check if input is a integer ( lacks negative nbs)
+        if(!isNaN(item) && Number.isInteger(Number(item))){
+          validUserInput.push(Number(item))
+        }
+        else{
+        console.log(`${item} is not a integer`)
+
+        }
+    })
+    const result= moveZeros(validUserInput)
+    console.log(result)
+
+</script>
+
+</body>
+</html>
